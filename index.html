@@ -917,21 +917,38 @@
         }
 
         async function loadVaultDataFromGitHub() {
-            const repo = localStorage.getItem('yesus_vault_gh_repo');
-            const token = localStorage.getItem('yesus_vault_gh_token');
-            const url = repo ? `https://api.github.com/repos/${repo}/contents/vault-data.json` : 'vault-data.json';
+            const cacheBuster = '?t=' + new Date().getTime();
+            let url = './vault-data.json' + cacheBuster;
 
             try {
-                const headers = token ? { 'Authorization': `token ${token}` } : {};
-                const res = await fetch(url, { headers });
+                let res = await fetch(url);
+                if (!res.ok) {
+                    const repo = localStorage.getItem('yesus_vault_gh_repo');
+                    if (repo) {
+                        url = `https://${repo.split('/')[0]}.github.io/${repo.split('/')[1]}/vault-data.json` + cacheBuster;
+                        res = await fetch(url);
+                    }
+                }
+
                 if (res.ok) {
-                    const fileData = await res.json();
-                    currentFileSha = fileData.sha;
-                    const content = JSON.parse(decodeURIComponent(escape(atob(fileData.content))));
+                    const content = await res.json();
                     games = content.games || [];
                     movies = content.movies || [];
                     anime = content.anime || [];
                     hof = content.hof || [];
+
+                    const token = localStorage.getItem('yesus_vault_gh_token');
+                    const repo = localStorage.getItem('yesus_vault_gh_repo');
+                    if (token && repo) {
+                        const apiRes = await fetch(`https://api.github.com/repos/${repo}/contents/vault-data.json`, {
+                            headers: { 'Authorization': `token ${token}` }
+                        });
+                        if (apiRes.ok) {
+                            const fileData = await apiRes.json();
+                            currentFileSha = fileData.sha;
+                        }
+                    }
+
                     updateDashboardStats();
                     renderActiveView();
                 } else {
