@@ -1,14 +1,5 @@
 {
-  "games": [
-    {
-      "id": "1794240915502",
-      "title": "hola",
-      "platform": "",
-      "img": "https://imgs.search.brave.com/BLzuSP5121vm3yynr5VTSHdr4Okd6Sufrc06keWDx24/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2YwL2Y0/L2E5L2YwZjRhOTk2/OTVmYmI1OWRhM2E3/MDYyMDhlN2I4NzYy/LmpwZw",
-      "tag": "JUGANDO",
-      "rating": null
-    }
-  ],
+  "games": [],
   "movies": [],
   "anime": [],
   "hof": []
