@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>▲</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>▲</text></svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YESU'S VAULT</title>
@@ -24,11 +24,10 @@
             --text-muted: #6e6256;
             --border-wood: #d9cdb8;
             
-            /* Colores temáticos Zelda & Outer Wilds */
-            --accent-gold: #c69214;       /* Dorado Trifuerza */
-            --zelda-green: #3a5f43;      /* Verde Hyrule */
-            --outer-cyan: #3b8a9e;       /* Azul Estelar / Ojo del Universo */
-            --outer-orange: #d96b27;     /* Naranja Fogata Nomai */
+            --accent-gold: #c69214;
+            --zelda-green: #3a5f43;
+            --outer-cyan: #3b8a9e;
+            --outer-orange: #d96b27;
 
             --tag-completados: #4a7c59;
             --tag-jugando: #2b687f;
@@ -38,7 +37,7 @@
         }
 
         body.dark-mode {
-            --bg-paper: #0b0f14;         /* Fondo espacial profundo tipo Outer Wilds */
+            --bg-paper: #0b0f14;
             --bg-tatami: #141c24;
             --card-bg: #18222d;
             --wood-dark: #f0e6d2;
@@ -60,11 +59,7 @@
             --tag-pendientes: #c2a11b;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background-color: var(--bg-paper);
@@ -89,274 +84,126 @@
             background-size: 100% 100%, 30px 30px;
         }
 
-        /* CANVAS DE ESTRELLAS CÓSMICAS */
         #starsCanvas {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 380px;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.85;
+            top: 0; left: 0; width: 100%; height: 380px;
+            pointer-events: none; z-index: 0; opacity: 0.85;
         }
 
         .page-wrapper {
-            width: 100%;
-            max-width: 1500px;
-            margin: 0 auto;
-            padding: 2.5rem 3rem;
-            position: relative;
-            z-index: 1;
+            width: 100%; max-width: 1500px; margin: 0 auto;
+            padding: 2.5rem 3rem; position: relative; z-index: 1;
         }
 
-        @media (max-width: 768px) {
-            .page-wrapper {
-                padding: 1.5rem 1rem;
-            }
-        }
+        @media (max-width: 768px) { .page-wrapper { padding: 1.5rem 1rem; } }
 
-        /* HEADER & BANNER */
         .header-nav-bar {
-            display: grid;
-            grid-template-columns: 140px 1fr 140px;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1.8rem;
-            border-bottom: 2px solid var(--border-wood);
-            position: relative;
+            display: grid; grid-template-columns: 140px 1fr 140px;
+            align-items: center; margin-bottom: 2rem; padding-bottom: 1.8rem;
+            border-bottom: 2px solid var(--border-wood); position: relative;
             transition: border-color 0.3s ease;
         }
 
         .header-nav-bar::after {
-            content: '▲';
-            position: absolute;
-            bottom: -9px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-paper);
-            padding: 0 12px;
-            color: var(--accent-gold);
-            font-size: 0.9rem;
+            content: '▲'; position: absolute; bottom: -9px; left: 50%;
+            transform: translateX(-50%); background: var(--bg-paper);
+            padding: 0 12px; color: var(--accent-gold); font-size: 0.9rem;
             transition: background-color 0.3s ease;
         }
 
         .home-y-btn, .theme-toggle-btn, .header-action-btn {
-            background: var(--card-bg);
-            border: 2px solid var(--border-wood);
-            color: var(--wood-dark);
-            font-family: 'Zen Antique', 'Noto Serif JP', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            transition: all 0.25s ease;
-            position: relative;
+            background: var(--card-bg); border: 2px solid var(--border-wood);
+            color: var(--wood-dark); font-family: 'Zen Antique', 'Noto Serif JP', serif;
+            font-size: 1.2rem; font-weight: 700; width: 46px; height: 46px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.25s ease; position: relative;
         }
 
         .home-y-btn:hover, .theme-toggle-btn:hover, .header-action-btn:hover {
-            background: var(--wood-dark);
-            color: var(--bg-paper);
-            border-color: var(--accent-gold);
-            transform: translateY(-2px);
+            background: var(--wood-dark); color: var(--bg-paper);
+            border-color: var(--accent-gold); transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(198, 146, 20, 0.25);
         }
 
         .header-left-actions { display: flex; justify-content: flex-start; gap: 8px; align-items: center; }
-        .header-right-actions {
-            grid-column: 3;
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-        }
-
-        .header-title-container {
-            grid-column: 2;
-            text-align: center;
-            position: relative;
-        }
+        .header-right-actions { grid-column: 3; display: flex; justify-content: flex-end; gap: 10px; }
+        .header-title-container { grid-column: 2; text-align: center; position: relative; }
 
         .vault-title {
-            font-family: 'Cinzel', 'Zen Antique', serif;
-            font-size: 3.2rem;
-            font-weight: 700;
-            letter-spacing: 4px;
-            color: var(--wood-dark);
-            margin-bottom: 0.3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.2rem;
-            transition: color 0.3s ease;
+            font-family: 'Cinzel', 'Zen Antique', serif; font-size: 3.2rem;
+            font-weight: 700; letter-spacing: 4px; color: var(--wood-dark);
+            margin-bottom: 0.3rem; display: flex; align-items: center;
+            justify-content: center; gap: 1.2rem; transition: color 0.3s ease;
         }
 
-        .triforce-icon {
-            color: var(--accent-gold);
-            font-size: 1.3rem;
-            filter: drop-shadow(0 0 4px rgba(198, 146, 20, 0.4));
-        }
-
-        .eye-icon {
-            color: var(--outer-cyan);
-            font-size: 1.3rem;
-            filter: drop-shadow(0 0 6px rgba(59, 138, 158, 0.5));
-        }
+        .triforce-icon { color: var(--accent-gold); font-size: 1.3rem; filter: drop-shadow(0 0 4px rgba(198, 146, 20, 0.4)); }
+        .eye-icon { color: var(--outer-cyan); font-size: 1.3rem; filter: drop-shadow(0 0 6px rgba(59, 138, 158, 0.5)); cursor: pointer; }
 
         .vault-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
+            font-size: 0.85rem; color: var(--text-muted); letter-spacing: 6px;
+            text-transform: uppercase; display: flex; align-items: center;
+            justify-content: center; gap: 12px;
         }
 
         .vault-subtitle::before, .vault-subtitle::after {
-            content: '──✦──';
-            color: var(--outer-cyan);
-            font-size: 0.7rem;
-            opacity: 0.7;
+            content: '──✦──'; color: var(--outer-cyan); font-size: 0.7rem; opacity: 0.7;
         }
 
-        /* CITA CÉLEBRE SOLANUM (DESENCUADRADA Y ORGÁNICA) */
         .quote-container {
-            text-align: center;
-            margin: 1.5rem auto 2.2rem auto;
-            max-width: 680px;
-            padding: 0.5rem 1rem;
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            position: relative;
+            text-align: center; margin: 1.5rem auto 2.2rem auto; max-width: 680px;
+            padding: 0.5rem 1rem; background: transparent; border: none; box-shadow: none; position: relative;
         }
 
         .quote-container::before {
-            content: '✦';
-            display: block;
-            margin: 0 auto 0.5rem auto;
-            color: var(--outer-cyan);
-            font-size: 0.85rem;
-            opacity: 0.8;
+            content: '✦'; display: block; margin: 0 auto 0.5rem auto;
+            color: var(--outer-cyan); font-size: 0.85rem; opacity: 0.8;
         }
 
         .quote-text {
-            font-family: 'Cinzel', 'Zen Antique', serif;
-            font-size: 1.45rem;
-            font-style: italic;
-            color: var(--wood-dark);
-            line-height: 1.5;
-            position: relative;
-            display: inline-block;
+            font-family: 'Cinzel', 'Zen Antique', serif; font-size: 1.45rem;
+            font-style: italic; color: var(--wood-dark); line-height: 1.5;
+            position: relative; display: inline-block;
         }
 
         .quote-author {
-            display: block;
-            margin-top: 0.7rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: var(--outer-orange);
-            text-transform: uppercase;
+            display: block; margin-top: 0.7rem; font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem; font-weight: 700; letter-spacing: 3px;
+            color: var(--outer-orange); text-transform: uppercase;
         }
 
-        /* PANEL DE ESTADÍSTICAS DEL VAULT (MÁS SUTIL Y COMPACTO) */
         .stats-dashboard {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.8rem;
-            margin-bottom: 1.8rem;
-            max-width: 950px;
-            margin-left: auto;
-            margin-right: auto;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem;
+            margin-bottom: 1.8rem; max-width: 950px; margin-left: auto; margin-right: auto;
         }
 
-        @media (max-width: 900px) {
-            .stats-dashboard { grid-template-columns: repeat(2, 1fr); }
-        }
+        @media (max-width: 900px) { .stats-dashboard { grid-template-columns: repeat(2, 1fr); } }
 
         .stat-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-wood);
-            border-radius: 8px;
-            padding: 0.65rem 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-            transition: all 0.25s ease;
-            opacity: 0.9;
+            background: var(--card-bg); border: 1px solid var(--border-wood);
+            border-radius: 8px; padding: 0.65rem 0.9rem; display: flex;
+            align-items: center; gap: 0.75rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: all 0.25s ease; opacity: 0.9;
         }
 
-        .stat-card:hover {
-            border-color: var(--accent-gold);
-            transform: translateY(-1px);
-            opacity: 1;
-        }
+        .stat-card:hover { border-color: var(--accent-gold); transform: translateY(-1px); opacity: 1; }
 
         .stat-icon {
-            font-size: 1.25rem;
-            color: var(--outer-cyan);
-            width: 34px;
-            height: 34px;
-            border-radius: 6px;
-            background: rgba(59, 138, 158, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            font-size: 1.25rem; color: var(--outer-cyan); width: 34px; height: 34px;
+            border-radius: 6px; background: rgba(59, 138, 158, 0.08); display: flex;
+            align-items: center; justify-content: center; flex-shrink: 0;
         }
 
-        .stat-info {
-            display: flex;
-            flex-direction: column;
-        }
+        .stat-info { display: flex; flex-direction: column; }
+        .stat-value { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700; color: var(--wood-dark); line-height: 1.1; }
+        .stat-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); font-weight: 600; }
 
-        .stat-value {
-            font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--wood-dark);
-            line-height: 1.1;
-        }
+        .view-section { display: none; animation: fadeIn 0.35s ease-in-out forwards; }
+        .view-section.active { display: block; }
 
-        .stat-label {
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-        .view-section {
-            display: none;
-            animation: fadeIn 0.35s ease-in-out forwards;
-        }
-
-        .view-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* MENÚ PRINCIPAL GRID */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
+        .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem; }
 
         @media (max-width: 1000px) {
             .menu-grid { grid-template-columns: repeat(2, 1fr) !important; }
@@ -370,244 +217,77 @@
         }
 
         .menu-card {
-            background: var(--card-bg);
-            border: 2px solid var(--border-wood);
-            border-radius: 14px;
-            padding: 2.2rem 1.2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1.2rem;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: var(--card-bg); border: 2px solid var(--border-wood);
+            border-radius: 14px; padding: 2.2rem 1.2rem; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            gap: 1.2rem; cursor: pointer; position: relative; overflow: hidden;
+            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .menu-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
             background: linear-gradient(90deg, var(--accent-gold), var(--outer-cyan));
-            transition: opacity 0.3s ease;
-            opacity: 0.7;
+            transition: opacity 0.3s ease; opacity: 0.7;
         }
 
-        .menu-card.card-hof::before {
-            background: linear-gradient(90deg, #d4af37, #f3e5ab, #d4af37);
-            height: 5px;
-            opacity: 1;
-        }
+        .menu-card:hover { border-color: var(--accent-gold); transform: translateY(-5px); box-shadow: 0 12px 30px rgba(198, 146, 20, 0.15); }
 
-        .menu-card:hover {
-            border-color: var(--accent-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(198, 146, 20, 0.15);
-        }
+        .menu-card i { font-size: 2.8rem; color: var(--wood-medium); transition: transform 0.3s ease, color 0.3s ease; }
+        .menu-card:hover i { transform: scale(1.12); color: var(--accent-gold); }
 
-        .menu-card.card-hof:hover {
-            border-color: #d4af37;
-            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.35);
-        }
-
-        .menu-card i {
-            font-size: 2.8rem;
-            color: var(--wood-medium);
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .menu-card:hover i {
-            transform: scale(1.12);
-            color: var(--accent-gold);
-        }
-
-        .menu-card.card-hof i {
-            color: var(--accent-gold);
-            filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
-        }
-
-        .menu-card.card-hof:hover i {
-            color: #f3c244;
-            transform: scale(1.15) rotate(5deg);
-        }
-
-        .menu-card-title {
-            font-family: 'Cinzel', 'Noto Serif JP', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--wood-dark);
-            text-align: center;
-        }
+        .menu-card-title { font-family: 'Cinzel', 'Noto Serif JP', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 2px; color: var(--wood-dark); text-align: center; }
 
         .list-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px dashed var(--border-wood);
-            flex-wrap: wrap;
-            gap: 1rem;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px dashed var(--border-wood);
+            flex-wrap: wrap; gap: 1rem;
         }
 
-        .list-header-title {
-            font-family: 'Cinzel', 'Zen Antique', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--wood-dark);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .list-header-title { font-family: 'Cinzel', 'Zen Antique', serif; font-size: 2.2rem; font-weight: 700; color: var(--wood-dark); display: flex; align-items: center; gap: 1rem; }
+
+        .header-actions-group { display: flex; gap: 0.8rem; align-items: center; }
+
+        .btn-add, .btn-randomizer, .btn-hof-add {
+            background: var(--wood-dark); border: 1px solid var(--accent-gold);
+            color: var(--bg-paper); font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem; font-weight: 600; padding: 0.8rem 1.4rem;
+            border-radius: 8px; cursor: pointer; display: flex; align-items: center;
+            gap: 0.6rem; transition: all 0.25s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .header-actions-group {
-            display: flex;
-            gap: 0.8rem;
-            align-items: center;
+        .btn-randomizer { background: var(--card-bg); color: var(--wood-dark); border-color: var(--outer-cyan); }
+        .btn-add:hover { background: var(--accent-gold); color: #12100e; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(198, 146, 20, 0.3); }
+        .btn-randomizer:hover { background: var(--outer-cyan); color: #ffffff; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(59, 138, 158, 0.3); }
+
+        /* OCULTAR BOTONES DE EDICIÓN EN MODO PÚBLICO */
+        body:not(.admin-mode) .admin-only {
+            display: none !important;
         }
 
-        .btn-add, .btn-randomizer {
-            background: var(--wood-dark);
-            border: 1px solid var(--accent-gold);
-            color: var(--bg-paper);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            padding: 0.8rem 1.4rem;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-randomizer {
-            background: var(--card-bg);
-            color: var(--wood-dark);
-            border-color: var(--outer-cyan);
-        }
-
-        .btn-add:hover {
-            background: var(--accent-gold);
-            color: #12100e;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(198, 146, 20, 0.3);
-        }
-
-        .btn-randomizer:hover {
-            background: var(--outer-cyan);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(59, 138, 158, 0.3);
-        }
-
-        /* BARRA DE BÚSQUEDA Y FILTROS */
-        .search-filter-bar {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .search-input-wrap {
-            flex-grow: 1;
-            position: relative;
-            min-width: 250px;
-        }
-
-        .search-input-wrap i {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-        }
-
+        .search-filter-bar { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .search-input-wrap { flex-grow: 1; position: relative; min-width: 250px; }
+        .search-input-wrap i { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
         .search-control {
-            width: 100%;
-            background: var(--card-bg);
-            border: 1px solid var(--border-wood);
-            border-radius: 8px;
-            padding: 0.8rem 1rem 0.8rem 2.6rem;
-            color: var(--text-dark);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.25s;
+            width: 100%; background: var(--card-bg); border: 1px solid var(--border-wood);
+            border-radius: 8px; padding: 0.8rem 1rem 0.8rem 2.6rem; color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; outline: none; transition: border-color 0.25s;
         }
-
-        .search-control:focus {
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 3px rgba(198, 146, 20, 0.12);
-        }
+        .search-control:focus { border-color: var(--accent-gold); box-shadow: 0 0 0 3px rgba(198, 146, 20, 0.12); }
 
         .filter-select {
-            background: var(--card-bg);
-            border: 1px solid var(--border-wood);
-            border-radius: 8px;
-            padding: 0.8rem 1.2rem;
-            color: var(--text-dark);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            outline: none;
-            cursor: pointer;
+            background: var(--card-bg); border: 1px solid var(--border-wood);
+            border-radius: 8px; padding: 0.8rem 1.2rem; color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; outline: none; cursor: pointer;
         }
 
-        .sections-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.8rem;
-        }
+        .sections-container { display: flex; flex-direction: column; gap: 1.8rem; }
+        .accordion-section { background: var(--card-bg); border: 2px solid var(--border-wood); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04); transition: border-color 0.3s ease, background-color 0.3s ease; }
+        .accordion-header { padding: 1.3rem 1.8rem; background: var(--bg-tatami); display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; transition: background 0.25s ease; border-bottom: 1px solid transparent; }
+        .accordion-section.active .accordion-header { border-bottom-color: var(--border-wood); }
+        .accordion-header:hover { filter: brightness(0.96); }
 
-        .accordion-section {
-            background: var(--card-bg);
-            border: 2px solid var(--border-wood);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-            transition: border-color 0.3s ease, background-color 0.3s ease;
-        }
-
-        .accordion-header {
-            padding: 1.3rem 1.8rem;
-            background: var(--bg-tatami);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            user-select: none;
-            transition: background 0.25s ease;
-            border-bottom: 1px solid transparent;
-        }
-
-        .accordion-section.active .accordion-header {
-            border-bottom-color: var(--border-wood);
-        }
-
-        .accordion-header:hover {
-            filter: brightness(0.96);
-        }
-
-        .accordion-title-wrap {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-        }
-
-        .accordion-title {
-            font-family: 'Cinzel', 'Noto Serif JP', serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
+        .accordion-title-wrap { display: flex; align-items: center; gap: 1.2rem; }
+        .accordion-title { font-family: 'Cinzel', 'Noto Serif JP', serif; font-size: 1.35rem; font-weight: 700; letter-spacing: 2px; }
 
         .accordion-section[data-tag="JUGANDO"] .accordion-title, .accordion-section[data-tag="VIENDO"] .accordion-title { color: var(--tag-jugando); }
         .accordion-section[data-tag="COMPLETADOS"] .accordion-title, .accordion-section[data-tag="VISTOS"] .accordion-title { color: var(--tag-completados); }
@@ -615,181 +295,56 @@
         .accordion-section[data-tag="PENDIENTES"] .accordion-title { color: var(--tag-pendientes); }
         .accordion-section[data-tag="ABANDONADOS"] .accordion-title { color: var(--tag-abandonados); }
 
-        .accordion-count {
-            background: rgba(150, 150, 150, 0.15);
-            color: var(--wood-dark);
-            font-size: 0.9rem;
-            font-weight: 700;
-            padding: 0.2rem 0.7rem;
-            border-radius: 12px;
-        }
+        .accordion-count { background: rgba(150, 150, 150, 0.15); color: var(--wood-dark); font-size: 0.9rem; font-weight: 700; padding: 0.2rem 0.7rem; border-radius: 12px; }
+        .accordion-icon { font-size: 1.2rem; color: var(--wood-medium); transition: transform 0.3s ease; }
+        .accordion-section.active .accordion-icon { transform: rotate(180deg); }
 
-        .accordion-icon {
-            font-size: 1.2rem;
-            color: var(--wood-medium);
-            transition: transform 0.3s ease;
-        }
+        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); background: var(--card-bg); }
+        .accordion-section.active .accordion-body { max-height: 4000px; transition: max-height 0.5s ease-in-out; }
+        .accordion-content { padding: 2rem; }
 
-        .accordion-section.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-
-        .accordion-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
-            background: var(--card-bg);
-        }
-
-        .accordion-section.active .accordion-body {
-            max-height: 4000px;
-            transition: max-height 0.5s ease-in-out;
-        }
-
-        .accordion-content {
-            padding: 2rem;
-        }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.8rem;
-        }
-
-        @media (max-width: 1200px) {
-            .games-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        @media (max-width: 850px) {
-            .games-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 550px) {
-            .games-grid { grid-template-columns: 1fr; }
-        }
+        .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8rem; }
+        @media (max-width: 1200px) { .games-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 850px) { .games-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 550px) { .games-grid { grid-template-columns: 1fr; } }
 
         .game-card {
-            background: var(--bg-paper);
-            border: 1px solid var(--border-wood);
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            background: var(--bg-paper); border: 1px solid var(--border-wood);
+            border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;
+            transition: all 0.3s ease; position: relative; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
-        .game-card:hover {
-            border-color: var(--accent-gold);
-            box-shadow: 0 8px 22px rgba(198, 146, 20, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .game-img-wrap {
-            width: 100%;
-            height: 170px;
-            position: relative;
-            background: #000;
-            overflow: hidden;
-        }
-
-        .game-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .game-card:hover .game-img {
-            transform: scale(1.06);
-        }
+        .game-card:hover { border-color: var(--accent-gold); box-shadow: 0 8px 22px rgba(198, 146, 20, 0.15); transform: translateY(-4px); }
+        .game-img-wrap { width: 100%; height: 170px; position: relative; background: #000; overflow: hidden; }
+        .game-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .game-card:hover .game-img { transform: scale(1.06); }
 
         .game-card-actions {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            gap: 6px;
-            opacity: 0;
-            transition: opacity 0.25s ease;
-            z-index: 2;
+            position: absolute; top: 10px; right: 10px; display: flex; gap: 6px;
+            opacity: 0; transition: opacity 0.25s ease; z-index: 2;
         }
 
-        .game-card:hover .game-card-actions {
-            opacity: 1;
-        }
+        .game-card:hover .game-card-actions { opacity: 1; }
 
         .card-action-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--wood-medium);
-            color: var(--wood-dark);
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            background: var(--card-bg); border: 1px solid var(--wood-medium);
+            color: var(--wood-dark); width: 34px; height: 34px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            font-size: 0.85rem; transition: all 0.2s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
 
-        .card-action-btn:hover {
-            background: var(--wood-dark);
-            color: var(--bg-paper);
-        }
+        .card-action-btn:hover { background: var(--wood-dark); color: var(--bg-paper); }
+        .card-action-btn.btn-delete:hover { background: var(--tag-abandonados); border-color: var(--tag-abandonados); color: #fff; }
 
-        .card-action-btn.btn-delete:hover {
-            background: var(--tag-abandonados);
-            border-color: var(--tag-abandonados);
-            color: #fff;
-        }
-
-        .game-details {
-            padding: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            gap: 0.6rem;
-        }
-
-        .game-title {
-            font-family: 'Cinzel', 'Noto Serif JP', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--wood-dark);
-            line-height: 1.35;
-        }
-
-        .game-platform {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .game-score-row {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: var(--accent-gold);
-            font-size: 0.95rem;
-            font-weight: 700;
-        }
+        .game-details { padding: 1.2rem; display: flex; flex-direction: column; flex-grow: 1; gap: 0.6rem; }
+        .game-title { font-family: 'Cinzel', 'Noto Serif JP', serif; font-size: 1.15rem; font-weight: 700; color: var(--wood-dark); line-height: 1.35; }
+        .game-platform { font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .game-score-row { display: flex; align-items: center; gap: 0.4rem; color: var(--accent-gold); font-size: 0.95rem; font-weight: 700; }
 
         .game-tag-badge {
-            align-self: flex-start;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 0.25rem 0.65rem;
-            border-radius: 4px;
-            text-transform: uppercase;
-            margin-top: 0.2rem;
+            align-self: flex-start; font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; padding: 0.25rem 0.65rem;
+            border-radius: 4px; text-transform: uppercase; margin-top: 0.2rem;
         }
 
         .tag-completados, .tag-vistos { background: rgba(74, 124, 89, 0.15); color: var(--tag-completados); border: 1px solid var(--tag-completados); }
@@ -798,533 +353,101 @@
         .tag-abandonados { background: rgba(176, 58, 46, 0.15); color: var(--tag-abandonados); border: 1px solid var(--tag-abandonados); }
         .tag-pendientes { background: rgba(194, 161, 27, 0.15); color: var(--tag-pendientes); border: 1px solid var(--tag-pendientes); }
 
-        .empty-section-msg {
-            color: var(--text-muted);
-            font-style: italic;
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.95rem;
-        }
+        .empty-section-msg { color: var(--text-muted); font-style: italic; text-align: center; padding: 2rem; font-size: 0.95rem; }
 
-        /* ESTILOS ESPECÍFICOS DE HALL OF FAME (MARCOS DE PALACIO Y DORADOS) */
-        .hof-section-title {
-            font-family: 'Cinzel', serif;
-            color: #d4af37 !important;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
-
-        .hof-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-            padding: 1.5rem 0;
-        }
-
-        @media (max-width: 1100px) {
-            .hof-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 650px) {
-            .hof-grid { grid-template-columns: 1fr; }
-        }
+        .hof-section-title { font-family: 'Cinzel', serif; color: #d4af37 !important; text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+        .hof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; padding: 1.5rem 0; }
+        @media (max-width: 1100px) { .hof-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 650px) { .hof-grid { grid-template-columns: 1fr; } }
 
         .hof-palace-frame {
-            background: linear-gradient(145deg, #2a1f10, #171109);
-            border: 4px solid #c5a059;
-            outline: 2px solid #5a431c;
-            outline-offset: -8px;
-            border-radius: 12px;
-            padding: 16px;
+            background: linear-gradient(145deg, #2a1f10, #171109); border: 4px solid #c5a059;
+            outline: 2px solid #5a431c; outline-offset: -8px; border-radius: 12px; padding: 16px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(212, 175, 55, 0.15);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.35s ease;
+            position: relative; display: flex; flex-direction: column; transition: all 0.35s ease;
         }
 
         body:not(.dark-mode) .hof-palace-frame {
-            background: linear-gradient(145deg, #fffcf5, #f3e9d2);
-            border: 4px solid #b8860b;
-            outline: 2px solid #d4af37;
-            box-shadow: 0 10px 25px rgba(184, 134, 11, 0.2), inset 0 0 15px rgba(212, 175, 55, 0.1);
+            background: linear-gradient(145deg, #fffcf5, #f3e9d2); border: 4px solid #b8860b;
+            outline: 2px solid #d4af37; box-shadow: 0 10px 25px rgba(184, 134, 11, 0.2), inset 0 0 15px rgba(212, 175, 55, 0.1);
         }
 
-        .hof-palace-frame:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 18px 35px rgba(212, 175, 55, 0.35), inset 0 0 30px rgba(212, 175, 55, 0.25);
-            border-color: #f3c244;
-        }
-
-        /* Esquinas de Marco Barroco */
-        .hof-palace-frame::before, .hof-palace-frame::after {
-            content: '✦';
-            position: absolute;
-            color: #d4af37;
-            font-size: 1.2rem;
-            z-index: 3;
-            pointer-events: none;
-            filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.8));
-        }
-
+        .hof-palace-frame:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 18px 35px rgba(212, 175, 55, 0.35), inset 0 0 30px rgba(212, 175, 55, 0.25); border-color: #f3c244; }
+        .hof-palace-frame::before, .hof-palace-frame::after { content: '✦'; position: absolute; color: #d4af37; font-size: 1.2rem; z-index: 3; pointer-events: none; filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.8)); }
         .hof-palace-frame::before { top: 4px; left: 6px; }
         .hof-palace-frame::after { top: 4px; right: 6px; }
 
-        .hof-img-container {
-            width: 100%;
-            height: 240px;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 2px solid #d4af37;
-            position: relative;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        }
+        .hof-img-container { width: 100%; height: 240px; border-radius: 6px; overflow: hidden; border: 2px solid #d4af37; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
+        .hof-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .hof-palace-frame:hover .hof-img { transform: scale(1.08); }
+        .hof-details { padding-top: 1.2rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; }
+        .hof-title { font-family: 'Cinzel', serif; font-size: 1.35rem; font-weight: 700; color: #f3e5ab; letter-spacing: 1.5px; line-height: 1.3; }
+        body:not(.dark-mode) .hof-title { color: #2c1d11; }
+        .hof-type-badge { font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: #d4af37; text-transform: uppercase; border-top: 1px solid rgba(212, 175, 55, 0.4); border-bottom: 1px solid rgba(212, 175, 55, 0.4); padding: 0.2rem 0.8rem; margin-top: 0.2rem; }
+        .hof-quote { font-style: italic; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.4; }
 
-        .hof-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+        .btn-hof-add { background: linear-gradient(135deg, #b8860b, #d4af37); color: #12100e; border: 1px solid #fff; font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 1px; padding: 0.85rem 1.6rem; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); transition: all 0.3s ease; }
+        .btn-hof-add:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6); background: linear-gradient(135deg, #d4af37, #f3c244); }
 
-        .hof-palace-frame:hover .hof-img {
-            transform: scale(1.08);
-        }
+        .btn-crown-modal { background: linear-gradient(135deg, #b8860b, #d4af37); color: #12100e; border: 1px solid #fff; font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 700; padding: 0.8rem; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35); transition: all 0.25s ease; width: 100%; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+        .btn-crown-modal:hover { background: linear-gradient(135deg, #d4af37, #f3c244); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5); }
 
-        .hof-details {
-            padding-top: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 0.5rem;
-        }
+        .art-gallery-placeholder { background: var(--card-bg); border: 2px dashed var(--border-wood); border-radius: 16px; padding: 4rem 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .art-gallery-placeholder i { font-size: 4rem; color: var(--accent-gold); opacity: 0.7; }
+        .art-gallery-placeholder h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--wood-dark); }
+        .art-gallery-placeholder p { color: var(--text-muted); max-width: 500px; line-height: 1.6; }
 
-        .hof-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #f3e5ab;
-            letter-spacing: 1.5px;
-            line-height: 1.3;
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px); z-index: 100; display: none; align-items: center; justify-content: center; padding: 1rem; }
+        .modal-overlay.active { display: flex; }
+        .modal-content { background: var(--card-bg); border: 3px solid var(--wood-medium); border-radius: 14px; width: 100%; max-width: 520px; padding: 2.2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.35); position: relative; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.8rem; padding-bottom: 0.8rem; border-bottom: 2px solid var(--border-wood); }
+        .modal-title { font-family: 'Cinzel', 'Zen Antique', serif; font-size: 1.5rem; color: var(--wood-dark); }
+        .modal-close { background: none; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer; transition: color 0.2s; }
+        .modal-close:hover { color: var(--tag-abandonados); }
 
-        body:not(.dark-mode) .hof-title {
-            color: #2c1d11;
-        }
+        .form-group { margin-bottom: 1.3rem; }
+        .form-group label { display: block; margin-bottom: 0.4rem; font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; color: var(--wood-medium); }
+        .form-control { width: 100%; background: var(--bg-paper); border: 1px solid var(--border-wood); border-radius: 6px; padding: 0.75rem 0.95rem; color: var(--text-dark); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.25s; }
+        .form-control:focus { border-color: var(--accent-gold); box-shadow: 0 0 0 3px rgba(198, 146, 20, 0.15); }
 
-        .hof-type-badge {
-            font-family: 'Cinzel', serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #d4af37;
-            text-transform: uppercase;
-            border-top: 1px solid rgba(212, 175, 55, 0.4);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
-            padding: 0.2rem 0.8rem;
-            margin-top: 0.2rem;
-        }
+        .btn-submit { width: 100%; background: var(--wood-dark); border: 1px solid var(--accent-gold); color: var(--bg-paper); font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700; padding: 0.9rem; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); transition: all 0.25s ease; margin-top: 0.6rem; }
+        .btn-submit:hover { background: var(--accent-gold); color: #12100e; transform: translateY(-2px); }
 
-        .hof-quote {
-            font-style: italic;
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin-top: 0.3rem;
-            line-height: 1.4;
-        }
+        .random-result-card { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .random-img { width: 100%; max-height: 230px; object-fit: cover; border-radius: 10px; border: 2px solid var(--border-wood); }
+        .random-title { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--wood-dark); }
 
-        .btn-hof-add {
-            background: linear-gradient(135deg, #b8860b, #d4af37);
-            color: #12100e;
-            border: 1px solid #fff;
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 0.85rem 1.6rem;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-            transition: all 0.3s ease;
-        }
+        .social-links-footer { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px dashed var(--border-wood); text-align: center; }
+        .social-links-title { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 3px; color: var(--text-muted); margin-bottom: 1.5rem; font-weight: 700; }
+        .social-links-grid { display: flex; justify-content: center; align-items: center; gap: 2.2rem; flex-wrap: wrap; }
+        .social-link-item { display: flex; align-items: center; gap: 0.6rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--wood-dark); text-decoration: none; transition: all 0.25s ease; }
+        .social-link-item:hover { color: var(--accent-gold); transform: translateY(-2px); }
+        .social-icon { font-size: 1.25rem; color: var(--outer-cyan); transition: color 0.25s ease, transform 0.25s ease; }
+        .social-link-item:hover .social-icon { color: var(--accent-gold); transform: scale(1.15); }
 
-        .btn-hof-add:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
-            background: linear-gradient(135deg, #d4af37, #f3c244);
-        }
-
-        /* BOTÓN DE ENCORONAR DORADO DENTRO DEL MODAL DE EDICIÓN */
-        .btn-crown-modal {
-            background: linear-gradient(135deg, #b8860b, #d4af37);
-            color: #12100e;
-            border: 1px solid #fff;
-            font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            padding: 0.8rem;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
-            transition: all 0.25s ease;
-            width: 100%;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-        }
-
-        .btn-crown-modal:hover {
-            background: linear-gradient(135deg, #d4af37, #f3c244);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5);
-        }
-
-        /* ESTILOS DE LA SECCIÓN ¿QUIÉN SOY? */
-        .art-gallery-placeholder.who-am-i-placeholder {
-            background: var(--card-bg);
-            border: 2px dashed var(--border-wood);
-            border-radius: 16px;
-            padding: 4rem 2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .art-gallery-placeholder.who-am-i-placeholder i {
-            font-size: 4rem;
-            color: var(--outer-cyan);
-            opacity: 0.8;
-        }
-
-        .art-gallery-placeholder.who-am-i-placeholder h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            color: var(--wood-dark);
-        }
-
-        .art-gallery-placeholder.who-am-i-placeholder p {
-            color: var(--text-muted);
-            max-width: 500px;
-            line-height: 1.6;
-        }
-
-        /* GALERÍA DE ARTE VACÍA */
-        .art-gallery-placeholder {
-            background: var(--card-bg);
-            border: 2px dashed var(--border-wood);
-            border-radius: 16px;
-            padding: 4rem 2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .art-gallery-placeholder i {
-            font-size: 4rem;
-            color: var(--accent-gold);
-            opacity: 0.7;
-        }
-
-        .art-gallery-placeholder h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            color: var(--wood-dark);
-        }
-
-        .art-gallery-placeholder p {
-            color: var(--text-muted);
-            max-width: 500px;
-            line-height: 1.6;
-        }
-
-        /* Modales */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(4px);
-            z-index: 100;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--card-bg);
-            border: 3px solid var(--wood-medium);
-            border-radius: 14px;
-            width: 100%;
-            max-width: 520px;
-            padding: 2.2rem;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-            position: relative;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.8rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 2px solid var(--border-wood);
-        }
-
-        .modal-title {
-            font-family: 'Cinzel', 'Zen Antique', serif;
-            font-size: 1.5rem;
-            color: var(--wood-dark);
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.4rem;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .modal-close:hover {
-            color: var(--tag-abandonados);
-        }
-
-        .form-group {
-            margin-bottom: 1.3rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--wood-medium);
-        }
-
-        .form-control {
-            width: 100%;
-            background: var(--bg-paper);
-            border: 1px solid var(--border-wood);
-            border-radius: 6px;
-            padding: 0.75rem 0.95rem;
-            color: var(--text-dark);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.25s;
-        }
-
-        .form-control:focus {
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 3px rgba(198, 146, 20, 0.15);
-        }
-
-        .btn-submit {
-            width: 100%;
-            background: var(--wood-dark);
-            border: 1px solid var(--accent-gold);
-            color: var(--bg-paper);
-            font-family: 'Cinzel', serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            padding: 0.9rem;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: all 0.25s ease;
-            margin-top: 0.6rem;
-        }
-
-        .btn-submit:hover {
-            background: var(--accent-gold);
-            color: #12100e;
-            transform: translateY(-2px);
-        }
-
-        /* MODAL DE RULETA / RANDOMIZER */
-        .random-result-card {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .random-img {
-            width: 100%;
-            max-height: 230px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid var(--border-wood);
-        }
-
-        .random-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            color: var(--wood-dark);
-        }
-
-        /* SECCIÓN DÓNDE ENCONTRARME (DESVINCULADA DE MARCOS) */
-        .social-links-footer {
-            margin-top: 3.5rem;
-            padding-top: 2rem;
-            border-top: 1px dashed var(--border-wood);
-            text-align: center;
-        }
-
-        .social-links-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .social-links-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2.2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link-item {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--wood-dark);
-            text-decoration: none;
-            transition: all 0.25s ease;
-        }
-
-        .social-link-item:hover {
-            color: var(--accent-gold);
-            transform: translateY(-2px);
-        }
-
-        .social-icon {
-            font-size: 1.25rem;
-            color: var(--outer-cyan);
-            transition: color 0.25s ease, transform 0.25s ease;
-        }
-
-        .social-link-item:hover .social-icon {
-            color: var(--accent-gold);
-            transform: scale(1.15);
-        }
-
-        /* BANNER EXCLUSIVO Y SEPARADO PARA HALL OF FAME */
         .hof-banner-wrapper {
             background: linear-gradient(135deg, rgba(198, 146, 20, 0.12), rgba(44, 29, 17, 0.05));
-            border: 2px solid #d4af37;
-            border-radius: 14px;
-            padding: 1.2rem 2rem;
-            margin-bottom: 1.5rem;
-            cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.12);
-            position: relative;
-            overflow: hidden;
+            border: 2px solid #d4af37; border-radius: 14px; padding: 1.2rem 2rem; margin-bottom: 1.5rem;
+            cursor: pointer; transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.12); position: relative; overflow: hidden;
         }
 
-        body.dark-mode .hof-banner-wrapper {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(24, 34, 45, 0.6));
-            border-color: #f3c244;
-        }
+        body.dark-mode .hof-banner-wrapper { background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(24, 34, 45, 0.6)); border-color: #f3c244; }
+        .hof-banner-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent); transform: translateX(-100%); transition: transform 0.6s ease; }
+        .hof-banner-wrapper:hover::before { transform: translateX(100%); }
+        .hof-banner-wrapper:hover { transform: translateY(-3px); border-color: #f3c244; box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); }
 
-        .hof-banner-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
+        .hof-banner-content { display: flex; align-items: center; justify-content: center; gap: 1.5rem; }
+        .hof-banner-icon { font-size: 2.2rem; color: #d4af37; filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5)); transition: transform 0.3s ease; }
+        .hof-banner-wrapper:hover .hof-banner-icon { transform: scale(1.15) rotate(5deg); color: #f3c244; }
+        .hof-banner-text { display: flex; flex-direction: column; text-align: center; }
+        .hof-banner-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 900; letter-spacing: 4px; color: #d4af37; text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+        .hof-banner-sub { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; letter-spacing: 2.5px; color: var(--text-muted); font-weight: 700; margin-top: 0.1rem; }
 
-        .hof-banner-wrapper:hover::before {
-            transform: translateX(100%);
-        }
-
-        .hof-banner-wrapper:hover {
-            transform: translateY(-3px);
-            border-color: #f3c244;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-        }
-
-        .hof-banner-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .hof-banner-icon {
-            font-size: 2.2rem;
-            color: #d4af37;
-            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
-            transition: transform 0.3s ease;
-        }
-
-        .hof-banner-wrapper:hover .hof-banner-icon {
-            transform: scale(1.15) rotate(5deg);
-            color: #f3c244;
-        }
-
-        .hof-banner-text {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .hof-banner-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            font-weight: 900;
-            letter-spacing: 4px;
-            color: #d4af37;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-        }
-
-        .hof-banner-sub {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 2.5px;
-            color: var(--text-muted);
-            font-weight: 700;
-            margin-top: 0.1rem;
-        }
-
-        /* OUTER WILDS: DECORACIÓN FOGATA EN MODO OSCURO */
         body.dark-mode::after {
-            content: '';
-            position: fixed;
-            bottom: -80px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 200px;
-            background: radial-gradient(ellipse at center, rgba(240, 131, 58, 0.12) 0%, rgba(217, 107, 39, 0.04) 45%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-            animation: campfirePulse 6s ease-in-out infinite alternate;
+            content: ''; position: fixed; bottom: -80px; left: 50%; transform: translateX(-50%);
+            width: 600px; height: 200px; background: radial-gradient(ellipse at center, rgba(240, 131, 58, 0.12) 0%, rgba(217, 107, 39, 0.04) 45%, transparent 70%);
+            pointer-events: none; z-index: 0; animation: campfirePulse 6s ease-in-out infinite alternate;
         }
 
         @keyframes campfirePulse {
@@ -1332,13 +455,9 @@
             50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
             100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
         }
-
     </style>
-
 </head>
 <body>
-    
-
     <canvas id="starsCanvas"></canvas>
 
     <div class="page-wrapper">
@@ -1347,7 +466,7 @@
                 <div id="topNav" style="display: none; margin-right: 8px;">
                     <button class="home-y-btn" onclick="playVaultSound(); showView('mainMenu')" title="Ir al Menú Principal">Y</button>
                 </div>
-                <button class="header-action-btn" onclick="playVaultSound(); showView('whoAmI')" title="Perfil del Explorador (¿Quién soy?)">
+                <button class="header-action-btn" onclick="playVaultSound(); showView('whoAmI')" title="Perfil del Explorador">
                     <i class="fa-solid fa-user-astronaut"></i>
                 </button>
             </div>
@@ -1356,16 +475,19 @@
                 <h1 class="vault-title">
                     <span class="triforce-icon" title="Trifuerza de Hyrule">▲</span>
                     YESU'S VAULT
-                    <span class="eye-icon" onclick="playTravelerEncore()" title="¡Haz clic 3 veces para invocar la melodía de los Viajeros!">⚛</span>
+                    <span class="eye-icon" onclick="playTravelerEncore()" title="¡Haz clic 3 veces para invocar la melodía!">⚛</span>
                 </h1>
                 <p class="vault-subtitle">COLLECTIONS & BACKLOG ARCHIVE</p>
             </div>
 
             <div class="header-right-actions">
-                <button class="header-action-btn" onclick="playVaultSound(); openBackupModal()" title="Copia de Seguridad (Importar / Exportar JSON)">
+                <button class="header-action-btn" onclick="playVaultSound(); openAuthModal()" title="Credenciales de Explorador (GitHub Sync)">
+                    <i class="fa-solid fa-key" style="color: var(--accent-gold);"></i>
+                </button>
+                <button class="header-action-btn" onclick="playVaultSound(); openBackupModal()" title="Copia de Seguridad (JSON)">
                     <i class="fa-solid fa-database"></i>
                 </button>
-                <button class="theme-toggle-btn" id="themeToggleBtn" onclick="playVaultSound(); toggleDarkMode()" title="Cambiar Modo Claro/Oscuro">
+                <button class="theme-toggle-btn" id="themeToggleBtn" onclick="playVaultSound(); toggleDarkMode()" title="Modo Claro/Oscuro">
                     <i class="fa-solid fa-moon" id="themeIcon"></i>
                 </button>
             </div>
@@ -1373,7 +495,6 @@
 
         <!-- SECCIÓN MENÚ PRINCIPAL -->
         <section id="mainMenu" class="view-section active">
-            <!-- DASHBOARD DE ESTADÍSTICAS DEL VAULT (SOLO AQUÍ) -->
             <section class="stats-dashboard" style="grid-template-columns: repeat(3, 1fr);">
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fa-solid fa-gamepad"></i></div>
@@ -1403,7 +524,6 @@
                 <cite class="quote-author">─ Solanum ─</cite>
             </div>
 
-            <!-- SECCIÓN DESTACADA HALL OF FAME -->
             <div class="hof-banner-wrapper" onclick="playVaultSound(); showView('hallOfFame')">
                 <div class="hof-banner-content">
                     <i class="fa-solid fa-crown hof-banner-icon"></i>
@@ -1411,7 +531,6 @@
                         <span class="hof-banner-title">HALL OF FAME</span>
                         <span class="hof-banner-sub">SANTUARIO DE OBRAS MAESTRAS</span>
                     </div>
-                    <i class="fa-solid fa-sparkles hof-banner-sparkle"></i>
                 </div>
             </div>
 
@@ -1420,17 +539,14 @@
                     <i class="fa-solid fa-gamepad"></i>
                     <span class="menu-card-title">Videojuegos</span>
                 </div>
-
                 <div class="menu-card" onclick="playVaultSound(); showView('moviesList')">
                     <i class="fa-solid fa-film"></i>
                     <span class="menu-card-title">Cine & Series</span>
                 </div>
-
                 <div class="menu-card" onclick="playVaultSound(); showView('animeList')">
                     <i class="fa-solid fa-tv"></i>
                     <span class="menu-card-title">Anime</span>
                 </div>
-
                 <div class="menu-card" onclick="playVaultSound(); showView('artGallery')">
                     <i class="fa-solid fa-palette"></i>
                     <span class="menu-card-title">Galería de Arte</span>
@@ -1446,16 +562,15 @@
                     HALL OF FAME
                 </h2>
                 <div class="header-actions-group">
-                    <button class="btn-hof-add" onclick="playVaultSound(); openHofModal()">
+                    <button class="btn-hof-add admin-only" onclick="playVaultSound(); openHofModal()">
                         <i class="fa-solid fa-plus"></i> ENCORONAR OBRA
                     </button>
                 </div>
             </div>
-
             <div class="hof-grid" id="hofContainer"></div>
         </section>
 
-        <!-- SECCIÓN ¿QUIÉN SOY? (PLANTILLA VACÍA) -->
+        <!-- SECCIÓN ¿QUIÉN SOY? -->
         <section id="whoAmI" class="view-section">
             <div class="list-header-row">
                 <h2 class="list-header-title">
@@ -1463,11 +578,10 @@
                     PERFIL DEL EXPLORADOR
                 </h2>
             </div>
-
-            <div class="art-gallery-placeholder who-am-i-placeholder">
+            <div class="art-gallery-placeholder">
                 <i class="fa-solid fa-user-astronaut"></i>
                 <h3>BITÁCORA PERSONAL</h3>
-                <p>Este espacio está listo para albergar tu perfil personal, biografía y especificaciones. Esperando instrucciones de contenido cuando desees completarlo.</p>
+                <p>Este espacio está listo para albergar tu perfil personal, biografía y especificaciones.</p>
             </div>
         </section>
 
@@ -1479,19 +593,18 @@
                     LISTA DE VIDEOJUEGOS
                 </h2>
                 <div class="header-actions-group">
-                    <button class="btn-randomizer" onclick="playVaultSound(); pickRandomItem('game')" title="Elegir juego al azar de tus pendientes o en curso">
+                    <button class="btn-randomizer" onclick="playVaultSound(); pickRandomItem('game')">
                         <i class="fa-solid fa-dice"></i> SORPRÉNDEME
                     </button>
-                    <button class="btn-add" onclick="playVaultSound(); openModal('game')">
+                    <button class="btn-add admin-only" onclick="playVaultSound(); openModal('game')">
                         <i class="fa-solid fa-plus"></i> AÑADIR JUEGO
                     </button>
                 </div>
             </div>
-
             <div class="search-filter-bar">
                 <div class="search-input-wrap">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="gamesSearch" class="search-control" placeholder="Buscar juego por título o plataforma..." oninput="renderGames()">
+                    <input type="text" id="gamesSearch" class="search-control" placeholder="Buscar juego..." oninput="renderGames()">
                 </div>
                 <select id="gamesFilter" class="filter-select" onchange="renderGames()">
                     <option value="ALL">Todas las etiquetas</option>
@@ -1509,9 +622,7 @@
                     <option value="ALPHA_DESC">Título: Z - A</option>
                 </select>
             </div>
-
             <div class="sections-container" id="gamesAccordionContainer"></div>
-
         </section>
 
         <!-- SECCIÓN CINE & SERIES -->
@@ -1522,15 +633,14 @@
                     CINE & SERIES
                 </h2>
                 <div class="header-actions-group">
-                    <button class="btn-randomizer" onclick="playVaultSound(); pickRandomItem('movie')" title="Elegir película o serie al azar">
+                    <button class="btn-randomizer" onclick="playVaultSound(); pickRandomItem('movie')">
                         <i class="fa-solid fa-dice"></i> SORPRÉNDEME
                     </button>
-                    <button class="btn-add" onclick="playVaultSound(); openModal('movie')">
+                    <button class="btn-add admin-only" onclick="playVaultSound(); openModal('movie')">
                         <i class="fa-solid fa-plus"></i> AÑADIR PELÍCULA / SERIE
                     </button>
                 </div>
             </div>
-
             <div class="search-filter-bar">
                 <div class="search-input-wrap">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -1549,9 +659,7 @@
                     <option value="ALPHA_DESC">Título: Z - A</option>
                 </select>
             </div>
-
             <div class="sections-container" id="moviesAccordionContainer"></div>
-
         </section>
 
         <!-- SECCIÓN ANIME -->
@@ -1562,15 +670,14 @@
                     LISTA DE ANIME
                 </h2>
                 <div class="header-actions-group">
-                    <button class="btn-randomizer" onclick="playVaultSound(); pickRandomItem('anime')" title="Elegir anime al azar">
+                    <button class="btn-randomizer" onclick="playVaultSound(); pickRandomItem('anime')">
                         <i class="fa-solid fa-dice"></i> SORPRÉNDEME
                     </button>
-                    <button class="btn-add" onclick="playVaultSound(); openModal('anime')">
+                    <button class="btn-add admin-only" onclick="playVaultSound(); openModal('anime')">
                         <i class="fa-solid fa-plus"></i> AÑADIR ANIME
                     </button>
                 </div>
             </div>
-
             <div class="search-filter-bar">
                 <div class="search-input-wrap">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -1590,12 +697,10 @@
                     <option value="ALPHA_DESC">Título: Z - A</option>
                 </select>
             </div>
-
             <div class="sections-container" id="animeAccordionContainer"></div>
-
         </section>
 
-        <!-- SECCIÓN GALERÍA DE ARTE (VACÍA) -->
+        <!-- SECCIÓN GALERÍA DE ARTE -->
         <section id="artGallery" class="view-section">
             <div class="list-header-row">
                 <h2 class="list-header-title">
@@ -1603,42 +708,36 @@
                     GALERÍA DE ARTE
                 </h2>
             </div>
-            
             <div class="art-gallery-placeholder">
                 <i class="fa-solid fa-palette"></i>
                 <h3>SANTUARIO DE ARTE</h3>
-                <p>Este espacio está reservado para albergar tus ilustraciones, figuras y piezas de arte. Esperando instrucciones de configuración especificada.</p>
+                <p>Este espacio está reservado para albergar tus ilustraciones y figuras.</p>
             </div>
         </section>
 
-            <!-- SECCIÓN DÓNDE ENCONTRARME CON COORDENADAS DEL OJO DEL UNIVERSO -->
-            <div class="social-links-footer">
-                <div style="font-size: 1.2rem; color: var(--outer-cyan); opacity: 0.75; margin-bottom: 0.6rem; letter-spacing: 8px;" title="Coordenadas del Ojo del Universo">⚛ ✦ ⚛</div>
-                <h3 class="social-links-title">── DÓNDE ENCONTRARME ──</h3>
-                <div class="social-links-grid">
-                    <a href="https://steamcommunity.com/id/conardodegormiti/" target="_blank" class="social-link-item">
-                        <i class="fa-brands fa-steam social-icon"></i>
-                        <span>Yesu</span>
-                    </a>
-                    <a href="https://instagram.com/jd.yesu" target="_blank" class="social-link-item">
-                        <i class="fa-brands fa-instagram social-icon"></i>
-                        <span>@jd.yesu</span>
-                    </a>
-                    <a href="https://x.com/EldenMedio_" target="_blank" class="social-link-item">
-                        <svg class="social-icon" style="width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: -0.125em;" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        <span>@EldenMedio_</span>
-                    </a>
-                    <div class="social-link-item">
-                        <i class="fa-brands fa-discord social-icon"></i>
-                        <span>yesuyaestapillado</span>
-                    </div>
-                    <a href="https://open.spotify.com/user/0fyhs2otarionxodznw8reft1?si=ef989731ae65425e" target="_blank" class="social-link-item">
-                        <i class="fa-brands fa-spotify social-icon"></i>
-                        <span>Yesu</span>
-                    </a>
+        <!-- FOOTER REDES -->
+        <div class="social-links-footer">
+            <div style="font-size: 1.2rem; color: var(--outer-cyan); opacity: 0.75; margin-bottom: 0.6rem; letter-spacing: 8px;">⚛ ✦ ⚛</div>
+            <h3 class="social-links-title">── DÓNDE ENCONTRARME ──</h3>
+            <div class="social-links-grid">
+                <a href="https://steamcommunity.com/id/conardodegormiti/" target="_blank" class="social-link-item">
+                    <i class="fa-brands fa-steam social-icon"></i><span>Yesu</span>
+                </a>
+                <a href="https://instagram.com/jd.yesu" target="_blank" class="social-link-item">
+                    <i class="fa-brands fa-instagram social-icon"></i><span>@jd.yesu</span>
+                </a>
+                <a href="https://x.com/EldenMedio_" target="_blank" class="social-link-item">
+                    <svg class="social-icon" style="width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: -0.125em;" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    <span>@EldenMedio_</span>
+                </a>
+                <div class="social-link-item">
+                    <i class="fa-brands fa-discord social-icon"></i><span>yesuyaestapillado</span>
                 </div>
+                <a href="https://open.spotify.com/user/0fyhs2otarionxodznw8reft1?si=ef989731ae65425e" target="_blank" class="social-link-item">
+                    <i class="fa-brands fa-spotify social-icon"></i><span>Yesu</span>
+                </a>
             </div>
-
+        </div>
     </div>
 
     <!-- Modal Form Generico -->
@@ -1656,28 +755,23 @@
                     <label for="itemTitleInput">TÍTULO *</label>
                     <input type="text" id="itemTitleInput" class="form-control" placeholder="Ej: Interstellar" required>
                 </div>
-
                 <div class="form-group" id="subtextGroup">
                     <label for="itemSubtextInput" id="subtextLabel">FORMATO / PLATAFORMA</label>
                     <input type="text" id="itemSubtextInput" class="form-control" placeholder="Ej: Película, Serie, PC, Switch">
                 </div>
-
                 <div class="form-group">
                     <label for="itemImgInput">URL DE LA IMAGEN *</label>
                     <input type="url" id="itemImgInput" class="form-control" placeholder="https://..." required>
                 </div>
-
                 <div class="form-group">
                     <label for="itemTagSelect">ETIQUETA *</label>
                     <select id="itemTagSelect" class="form-control" required></select>
                 </div>
-
                 <div class="form-group">
                     <label for="itemRatingInput">NOTA (0 - 10) [OPCIONAL]</label>
                     <input type="number" id="itemRatingInput" class="form-control" min="0" max="10" step="0.5" placeholder="Ej: 9.5">
                 </div>
 
-                <!-- BOTÓN DORADO DE ENCORONAR (SOLO AL EDITAR) -->
                 <div id="crownButtonWrap" style="display: none;">
                     <button type="button" class="btn-crown-modal" onclick="playVaultSound(); crownCurrentItemFromModal()">
                         <i class="fa-solid fa-crown"></i> ENCORONAR EN HALL OF FAME
@@ -1698,12 +792,10 @@
             </div>
             <form id="hofForm" onsubmit="handleHofFormSubmit(event)">
                 <input type="hidden" id="hofId">
-                
                 <div class="form-group">
                     <label for="hofTitleInput">TÍTULO DE LA OBRA MAESTRA *</label>
                     <input type="text" id="hofTitleInput" class="form-control" placeholder="Ej: Outer Wilds" required>
                 </div>
-
                 <div class="form-group">
                     <label for="hofTypeSelect">TIPO DE OBRA *</label>
                     <select id="hofTypeSelect" class="form-control" required>
@@ -1711,34 +803,55 @@
                         <option value="Película">Película</option>
                         <option value="Serie">Serie</option>
                         <option value="Anime">Anime</option>
-                        <option value="Obra Maestra">Obra Maestra (General)</option>
+                        <option value="Obra Maestra">Obra Maestra</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="hofImgInput">URL DE LA IMAGEN / PORTADA *</label>
                     <input type="url" id="hofImgInput" class="form-control" placeholder="https://..." required>
                 </div>
-
                 <div class="form-group">
                     <label for="hofQuoteInput">CITA O RESEÑA ÉPICA [OPCIONAL]</label>
                     <input type="text" id="hofQuoteInput" class="form-control" placeholder="Ej: Curiosidad por lo desconocido.">
                 </div>
-
                 <button type="submit" class="btn-submit" style="background: linear-gradient(135deg, #b8860b, #d4af37); color: #12100e;" onclick="playVaultSound()">ENCORONAR EN EL PALACIO</button>
             </form>
         </div>
     </div>
 
-    <!-- Modal Backup (Export/Import JSON) -->
+    <!-- Modal Configuración Autenticación (GitHub API) -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">CREDANCIALES DE EXPLORADOR</h3>
+                <button class="modal-close" onclick="playVaultSound(); closeAuthModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.2rem; line-height: 1.5;">
+                Ingresa tus credenciales de GitHub para desbloquear la gestión del Vault y sincronizar cambios en remoto.
+            </p>
+            <form onsubmit="saveAuthCredentials(event)">
+                <div class="form-group">
+                    <label for="ghRepoInput">REPOSITORIO (usuario/repo) *</label>
+                    <input type="text" id="ghRepoInput" class="form-control" placeholder="ej: tu-usuario/yesus-vault" required>
+                </div>
+                <div class="form-group">
+                    <label for="ghTokenInput">PERSONAL ACCESS TOKEN (PAT) *</label>
+                    <input type="password" id="ghTokenInput" class="form-control" placeholder="ghp_xxxxxxxxxxxx" required>
+                </div>
+                <button type="submit" class="btn-submit">GUARDAR Y ACTIVAR GESTIÓN</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Backup JSON -->
     <div class="modal-overlay" id="backupModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">COPIA DE SEGURIDAD DEL VAULT</h3>
+                <h3 class="modal-title">COPIA DE SEGURIDAD</h3>
                 <button class="modal-close" onclick="playVaultSound(); closeBackupModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.5;">
-                Exporta tus listas en un archivo <code>.json</code> para guardarlas a salvo o impórtalas en otro ordenador/navegador.
+                Exporta o importa un respaldo de datos local en formato <code>.json</code>.
             </p>
             <div style="display: flex; flex-direction: column; gap: 1rem;">
                 <button class="btn-submit" onclick="playVaultSound(); exportVaultData()">
@@ -1756,7 +869,7 @@
     <div class="modal-overlay" id="randomModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">¡LA RULETA DEL DESTINO HA HABLADO!</h3>
+                <h3 class="modal-title">¡LA RULETA HA HABLADO!</h3>
                 <button class="modal-close" onclick="playVaultSound(); closeRandomModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="random-result-card" id="randomResultBox"></div>
@@ -1764,61 +877,144 @@
     </div>
 
     <script>
-        // AUDIO DE ALTA INMERSIÓN (WEB AUDIO API)
         let audioCtx = null;
 
         function playVaultSound() {
             try {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
-
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); 
                 osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.12); 
-
                 gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
-
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.25);
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.start(); osc.stop(audioCtx.currentTime + 0.25);
             } catch (e) {}
         }
 
-        const initialGames = [
-            { id: '1', title: 'Cyberpunk 2077', platform: 'PC', img: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80', tag: 'JUGANDO', rating: null },
-            { id: '2', title: 'Elden Ring', platform: 'PS5', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80', tag: 'COMPLETADOS', rating: '10' },
-            { id: '3', title: 'Valorant', platform: 'PC', img: 'https://images.unsplash.com/photo-1552824722-e50b86a88b56?auto=format&fit=crop&w=600&q=80', tag: 'ONLINE', rating: '8' },
-            { id: '4', title: 'Hollow Knight', platform: 'Switch', img: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80', tag: 'PENDIENTES', rating: null }
-        ];
+        const initialGames = [];
+        const initialMovies = [];
+        const initialAnime = [];
+        const initialHof = [];
 
-        const initialMovies = [
-            { id: 'm1', title: 'Interstellar', platform: 'Película', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80', tag: 'VISTOS', rating: '10' },
-            { id: 'm2', title: 'Arcane', platform: 'Serie', img: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80', tag: 'PENDIENTES', rating: null }
-        ];
+        let games = initialGames;
+        let movies = initialMovies;
+        let anime = initialAnime;
+        let hof = initialHof;
+        let currentFileSha = null;
 
-        const initialAnime = [
-            { id: 'a1', title: "JoJo's Bizarre Adventure", platform: 'TV Anime', img: 'https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=600&q=80', tag: 'COMPLETADOS', rating: '10' }
-        ];
+        function checkAdminMode() {
+            const token = localStorage.getItem('yesus_vault_gh_token');
+            const repo = localStorage.getItem('yesus_vault_gh_repo');
+            if (token && repo) {
+                document.body.classList.add('admin-mode');
+            } else {
+                document.body.classList.remove('admin-mode');
+            }
+        }
 
-        const initialHof = [
-            { id: 'h1', title: 'Outer Wilds', type: 'Videojuego', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80', quote: 'The universe is, and we are.' },
-            { id: 'h2', title: 'The Legend of Zelda: Tears of the Kingdom', type: 'Videojuego', img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80', quote: 'Obra maestra de la exploración libre.' }
-        ];
+        async function loadVaultDataFromGitHub() {
+            const repo = localStorage.getItem('yesus_vault_gh_repo');
+            const token = localStorage.getItem('yesus_vault_gh_token');
+            const url = repo ? `https://api.github.com/repos/${repo}/contents/vault-data.json` : 'vault-data.json';
 
-        let games = JSON.parse(localStorage.getItem('yesus_vault_games')) || initialGames;
-        let movies = JSON.parse(localStorage.getItem('yesus_vault_movies')) || initialMovies;
-        let anime = JSON.parse(localStorage.getItem('yesus_vault_anime')) || initialAnime;
-        let hof = JSON.parse(localStorage.getItem('yesus_vault_hof')) || initialHof;
+            try {
+                const headers = token ? { 'Authorization': `token ${token}` } : {};
+                const res = await fetch(url, { headers });
+                if (res.ok) {
+                    const fileData = await res.json();
+                    currentFileSha = fileData.sha;
+                    const content = JSON.parse(decodeURIComponent(escape(atob(fileData.content))));
+                    games = content.games || [];
+                    movies = content.movies || [];
+                    anime = content.anime || [];
+                    hof = content.hof || [];
+                    updateDashboardStats();
+                    renderActiveView();
+                } else {
+                    loadLocalFallback();
+                }
+            } catch (err) {
+                loadLocalFallback();
+            }
+        }
+
+        function loadLocalFallback() {
+            games = JSON.parse(localStorage.getItem('yesus_vault_games')) || initialGames;
+            movies = JSON.parse(localStorage.getItem('yesus_vault_movies')) || initialMovies;
+            anime = JSON.parse(localStorage.getItem('yesus_vault_anime')) || initialAnime;
+            hof = JSON.parse(localStorage.getItem('yesus_vault_hof')) || initialHof;
+            updateDashboardStats();
+            renderActiveView();
+        }
+
+        async function syncVaultToGitHub() {
+            saveLocalBackup();
+            const repo = localStorage.getItem('yesus_vault_gh_repo');
+            const token = localStorage.getItem('yesus_vault_gh_token');
+
+            if (!repo || !token) return;
+
+            const vaultData = { games, movies, anime, hof };
+            const jsonString = JSON.stringify(vaultData, null, 2);
+            const encodedContent = btoa(unescape(encodeURIComponent(jsonString)));
+
+            try {
+                const body = {
+                    message: "Update Vault Data via Yesu's Vault Admin Panel",
+                    content: encodedContent,
+                    sha: currentFileSha
+                };
+                const res = await fetch(`https://api.github.com/repos/${repo}/contents/vault-data.json`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)
+                });
+
+                if (res.ok) {
+                    const resData = await res.json();
+                    currentFileSha = resData.content.sha;
+                }
+            } catch (e) {
+                console.error("Error sincronizando con GitHub:", e);
+            }
+        }
+
+        function saveLocalBackup() {
+            localStorage.setItem('yesus_vault_games', JSON.stringify(games));
+            localStorage.setItem('yesus_vault_movies', JSON.stringify(movies));
+            localStorage.setItem('yesus_vault_anime', JSON.stringify(anime));
+            localStorage.setItem('yesus_vault_hof', JSON.stringify(hof));
+        }
+
+        function openAuthModal() {
+            document.getElementById('ghRepoInput').value = localStorage.getItem('yesus_vault_gh_repo') || '';
+            document.getElementById('ghTokenInput').value = localStorage.getItem('yesus_vault_gh_token') || '';
+            document.getElementById('authModal').classList.add('active');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+
+        function saveAuthCredentials(e) {
+            e.preventDefault();
+            const repo = document.getElementById('ghRepoInput').value.trim();
+            const token = document.getElementById('ghTokenInput').value.trim();
+
+            localStorage.setItem('yesus_vault_gh_repo', repo);
+            localStorage.setItem('yesus_vault_gh_token', token);
+
+            checkAdminMode();
+            closeAuthModal();
+            loadVaultDataFromGitHub();
+        }
 
         function initTheme() {
             const isDarkMode = localStorage.getItem('yesus_vault_theme') === 'dark';
@@ -1831,17 +1027,9 @@
         function toggleDarkMode() {
             const isDark = document.body.classList.toggle('dark-mode');
             const themeIcon = document.getElementById('themeIcon');
-            if (isDark) {
-                themeIcon.className = 'fa-solid fa-sun';
-                localStorage.setItem('yesus_vault_theme', 'dark');
-            } else {
-                themeIcon.className = 'fa-solid fa-moon';
-                localStorage.setItem('yesus_vault_theme', 'light');
-            }
+            themeIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            localStorage.setItem('yesus_vault_theme', isDark ? 'dark' : 'light');
         }
-
-
-
 
         function updateDashboardStats() {
             document.getElementById('statGamesCount').innerText = games.length;
@@ -1849,28 +1037,23 @@
             document.getElementById('statAnimeCount').innerText = anime.length;
         }
 
-
-
+        function renderActiveView() {
+            if (document.getElementById('gamesList').classList.contains('active')) renderGames();
+            if (document.getElementById('moviesList').classList.contains('active')) renderMovies();
+            if (document.getElementById('animeList').classList.contains('active')) renderAnime();
+            if (document.getElementById('hallOfFame').classList.contains('active')) renderHof();
+        }
 
         function showView(viewId) {
-            
             document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
             document.getElementById(viewId).classList.add('active');
 
             const topNav = document.getElementById('topNav');
-            if (viewId === 'mainMenu') {
-                topNav.style.display = 'none';
-            } else {
-                topNav.style.display = 'block';
-                if (viewId === 'gamesList') renderGames();
-                if (viewId === 'moviesList') renderMovies();
-                if (viewId === 'animeList') renderAnime();
-                if (viewId === 'hallOfFame') renderHof();
-            }
+            topNav.style.display = viewId === 'mainMenu' ? 'none' : 'block';
+            renderActiveView();
             updateDashboardStats();
         }
 
-        /* RENDERING HALL OF FAME */
         function renderHof() {
             const container = document.getElementById('hofContainer');
             container.innerHTML = '';
@@ -1884,9 +1067,9 @@
                 const card = document.createElement('div');
                 card.className = 'hof-palace-frame';
                 card.innerHTML = `
-                    <div class="game-card-actions" style="opacity: 1;">
-                        <button class="card-action-btn" onclick="playVaultSound(); openHofModal('${item.id}')" title="Editar"><i class="fa-solid fa-pen"></i></button>
-                        <button class="card-action-btn btn-delete" onclick="playVaultSound(); deleteHofItem('${item.id}')" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+                    <div class="game-card-actions admin-only">
+                        <button class="card-action-btn" onclick="playVaultSound(); openHofModal('${item.id}')"><i class="fa-solid fa-pen"></i></button>
+                        <button class="card-action-btn btn-delete" onclick="playVaultSound(); deleteHofItem('${item.id}')"><i class="fa-solid fa-trash"></i></button>
                     </div>
                     <div class="hof-img-container">
                         <img src="${item.img}" alt="${item.title}" class="hof-img" onerror="this.src='https://via.placeholder.com/600x400/2c1d11/ece5d8?text=Hall+of+Fame'">
@@ -1921,13 +1104,10 @@
                 document.getElementById('hofId').value = '';
                 titleEl.innerText = 'ENCORONAR OBRA EN HOF';
             }
-
             modal.classList.add('active');
         }
 
-        function closeHofModal() {
-            document.getElementById('hofModal').classList.remove('active');
-        }
+        function closeHofModal() { document.getElementById('hofModal').classList.remove('active'); }
 
         function handleHofFormSubmit(e) {
             e.preventDefault();
@@ -1939,15 +1119,12 @@
 
             if (id) {
                 const index = hof.findIndex(x => x.id === id);
-                if (index !== -1) {
-                    hof[index] = { id, title, type, img, quote };
-                }
+                if (index !== -1) hof[index] = { id, title, type, img, quote };
             } else {
-                const newItem = { id: Date.now().toString(), title, type, img, quote };
-                hof.unshift(newItem);
+                hof.unshift({ id: Date.now().toString(), title, type, img, quote });
             }
 
-            saveHof();
+            syncVaultToGitHub();
             renderHof();
             updateDashboardStats();
             closeHofModal();
@@ -1956,66 +1133,38 @@
         function deleteHofItem(id) {
             if (confirm('¿Retirar esta obra del Hall of Fame?')) {
                 hof = hof.filter(x => x.id !== id);
-                saveHof();
+                syncVaultToGitHub();
                 renderHof();
                 updateDashboardStats();
             }
         }
 
-        function saveHof() { localStorage.setItem('yesus_vault_hof', JSON.stringify(hof)); }
-
-        /* LÓGICA PARA ENCORONAR DIRECTAMENTE DESDE EL MODAL DE EDICIÓN */
         function crownCurrentItemFromModal() {
             const category = document.getElementById('itemCategory').value;
             const title = document.getElementById('itemTitleInput').value.trim();
             const img = document.getElementById('itemImgInput').value.trim();
             const rating = document.getElementById('itemRatingInput').value;
 
-            if (!title || !img) {
-                alert('Asegúrate de que la obra tenga título e imagen para encoronarla.');
-                return;
-            }
+            if (!title || !img) return;
 
-            // Mapear categoría a Tipo de HOF
             let type = 'Obra Maestra';
             if (category === 'game') type = 'Videojuego';
             if (category === 'movie') type = 'Película / Serie';
             if (category === 'anime') type = 'Anime';
 
-            // Comprobar si ya está encoronado con el mismo título
-            const exists = hof.some(x => x.title.toLowerCase() === title.toLowerCase());
-            if (exists) {
-                alert(`"${title}" ya se encuentra encoronado en el Hall of Fame.`);
-                return;
-            }
-
             const quoteText = rating ? `Puntuación personal: ${rating}/10` : '';
-            const newHofItem = {
-                id: Date.now().toString(),
-                title: title,
-                type: type,
-                img: img,
-                quote: quoteText
-            };
-
-            hof.unshift(newHofItem);
-            saveHof();
+            hof.unshift({ id: Date.now().toString(), title, type, img, quote: quoteText });
+            syncVaultToGitHub();
             updateDashboardStats();
             closeModal();
-            alert(`¡"${title}" ha sido encoronado con éxito en el Hall of Fame! 👑`);
         }
 
         function sortItemsList(items, sortMode) {
             const list = [...items];
-            if (sortMode === 'RATING_DESC') {
-                list.sort((a, b) => (parseFloat(b.rating) || 0) - (parseFloat(a.rating) || 0));
-            } else if (sortMode === 'RATING_ASC') {
-                list.sort((a, b) => (parseFloat(a.rating) || 0) - (parseFloat(b.rating) || 0));
-            } else if (sortMode === 'ALPHA_ASC') {
-                list.sort((a, b) => a.title.localeCompare(b.title));
-            } else if (sortMode === 'ALPHA_DESC') {
-                list.sort((a, b) => b.title.localeCompare(a.title));
-            }
+            if (sortMode === 'RATING_DESC') list.sort((a, b) => (parseFloat(b.rating) || 0) - (parseFloat(a.rating) || 0));
+            else if (sortMode === 'RATING_ASC') list.sort((a, b) => (parseFloat(a.rating) || 0) - (parseFloat(b.rating) || 0));
+            else if (sortMode === 'ALPHA_ASC') list.sort((a, b) => a.title.localeCompare(b.title));
+            else if (sortMode === 'ALPHA_DESC') list.sort((a, b) => b.title.localeCompare(a.title));
             return list;
         }
 
@@ -2065,99 +1214,73 @@
         }
 
         function renderGames() {
-            const tags = [
+            renderGenericAccordion('gamesAccordionContainer', games, 'gamesSearch', 'gamesFilter', 'gamesSort', [
                 { key: 'JUGANDO', label: 'JUGANDO' },
                 { key: 'COMPLETADOS', label: 'COMPLETADOS' },
                 { key: 'ONLINE', label: 'ONLINE' },
                 { key: 'PENDIENTES', label: 'PENDIENTES' },
                 { key: 'ABANDONADOS', label: 'ABANDONADOS' }
-            ];
-            renderGenericAccordion('gamesAccordionContainer', games, 'gamesSearch', 'gamesFilter', 'gamesSort', tags, 'game');
+            ], 'game');
         }
 
         function renderMovies() {
-            const tags = [
+            renderGenericAccordion('moviesAccordionContainer', movies, 'moviesSearch', 'moviesFilter', 'moviesSort', [
                 { key: 'VISTOS', label: 'VISTOS' },
                 { key: 'PENDIENTES', label: 'PENDIENTES' }
-            ];
-            renderGenericAccordion('moviesAccordionContainer', movies, 'moviesSearch', 'moviesFilter', 'moviesSort', tags, 'movie');
+            ], 'movie');
         }
 
         function renderAnime() {
-            const tags = [
+            renderGenericAccordion('animeAccordionContainer', anime, 'animeSearch', 'animeFilter', 'animeSort', [
                 { key: 'VIENDO', label: 'VIENDO' },
                 { key: 'COMPLETADOS', label: 'COMPLETADOS' },
                 { key: 'PENDIENTES', label: 'PENDIENTES' }
-            ];
-            renderGenericAccordion('animeAccordionContainer', anime, 'animeSearch', 'animeFilter', 'animeSort', tags, 'anime');
+            ], 'anime');
         }
 
-        function toggleAccordion(headerEl) {
-            headerEl.parentElement.classList.toggle('active');
-        }
+        function toggleAccordion(headerEl) { headerEl.parentElement.classList.toggle('active'); }
 
         function createCardHTML(item, category) {
             const hasRating = item.rating !== null && item.rating !== undefined && item.rating !== '';
             return `
                 <div class="game-card">
                     <div class="game-img-wrap">
-                        <img src="${item.img}" alt="${item.title}" class="game-img" onerror="this.src='https://via.placeholder.com/600x400/2c1d11/ece5d8?text=Cozy+Vault'">
-                        <div class="game-card-actions">
-                            <button class="card-action-btn" onclick="playVaultSound(); openModal('${category}', '${item.id}')" title="Editar / Encoronar"><i class="fa-solid fa-pen"></i></button>
-                            <button class="card-action-btn btn-delete" onclick="playVaultSound(); deleteItem('${category}', '${item.id}')" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+                        <img src="${item.img}" alt="${item.title}" class="game-img" onerror="this.src='https://via.placeholder.com/600x400/2c1d11/ece5d8?text=Vault'">
+                        <div class="game-card-actions admin-only">
+                            <button class="card-action-btn" onclick="playVaultSound(); openModal('${category}', '${item.id}')"><i class="fa-solid fa-pen"></i></button>
+                            <button class="card-action-btn btn-delete" onclick="playVaultSound(); deleteItem('${category}', '${item.id}')"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </div>
                     <div class="game-details">
                         <h3 class="game-title">${item.title}</h3>
                         ${item.platform ? `<div class="game-platform">${item.platform}</div>` : ''}
-                        ${hasRating ? `
-                            <div class="game-score-row">
-                                <i class="fa-solid fa-star"></i>
-                                <span>${item.rating} / 10</span>
-                            </div>
-                        ` : ''}
+                        ${hasRating ? `<div class="game-score-row"><i class="fa-solid fa-star"></i><span>${item.rating} / 10</span></div>` : ''}
                         <span class="game-tag-badge tag-${item.tag.toLowerCase()}">${item.tag}</span>
                     </div>
                 </div>
             `;
         }
 
-        /* RULETA */
         function pickRandomItem(category) {
             let currentList = category === 'game' ? games : (category === 'movie' ? movies : anime);
             let filterable = currentList.filter(x => x.tag === 'PENDIENTES' || x.tag === 'JUGANDO' || x.tag === 'VIENDO');
             if (filterable.length === 0) filterable = currentList;
 
-            if (filterable.length === 0) {
-                alert('¡Tu lista está vacía! Añade algunos elementos primero.');
-                return;
-            }
+            if (filterable.length === 0) return;
 
             const chosen = filterable[Math.floor(Math.random() * filterable.length)];
-            const box = document.getElementById('randomResultBox');
-
-            box.innerHTML = `
-                <img src="${chosen.img}" class="random-img" onerror="this.src='https://via.placeholder.com/600x400/2c1d11/ece5d8?text=Cozy+Vault'">
+            document.getElementById('randomResultBox').innerHTML = `
+                <img src="${chosen.img}" class="random-img" onerror="this.src='https://via.placeholder.com/600x400/2c1d11/ece5d8?text=Vault'">
                 <h4 class="random-title">${chosen.title}</h4>
                 ${chosen.platform ? `<p style="color: var(--text-muted); font-weight: 600;">${chosen.platform}</p>` : ''}
                 <span class="game-tag-badge tag-${chosen.tag.toLowerCase()}">${chosen.tag}</span>
             `;
-
             document.getElementById('randomModal').classList.add('active');
         }
 
-        function closeRandomModal() {
-            document.getElementById('randomModal').classList.remove('active');
-        }
-
-        /* BACKUP JSON */
-        function openBackupModal() {
-            document.getElementById('backupModal').classList.add('active');
-        }
-
-        function closeBackupModal() {
-            document.getElementById('backupModal').classList.remove('active');
-        }
+        function closeRandomModal() { document.getElementById('randomModal').classList.remove('active'); }
+        function openBackupModal() { document.getElementById('backupModal').classList.add('active'); }
+        function closeBackupModal() { document.getElementById('backupModal').classList.remove('active'); }
 
         function exportVaultData() {
             const vaultData = { games, movies, anime, hof };
@@ -2184,25 +1307,12 @@
                         anime = parsed.anime;
                         if (parsed.hof) hof = parsed.hof;
 
-                        saveGames();
-                        saveMovies();
-                        saveAnime();
-                        saveHof();
-
+                        syncVaultToGitHub();
                         updateDashboardStats();
-                        if (document.getElementById('gamesList').classList.contains('active')) renderGames();
-                        if (document.getElementById('moviesList').classList.contains('active')) renderMovies();
-                        if (document.getElementById('animeList').classList.contains('active')) renderAnime();
-                        if (document.getElementById('hallOfFame').classList.contains('active')) renderHof();
-
-                        alert('¡Copia de seguridad del Vault restaurada con éxito!');
+                        renderActiveView();
                         closeBackupModal();
-                    } else {
-                        alert('El archivo cargado no tiene la estructura correcta del Vault.');
                     }
-                } catch (err) {
-                    alert('Error al leer el archivo JSON.');
-                }
+                } catch (err) {}
             };
             reader.readAsText(file);
         }
@@ -2241,21 +1351,19 @@
                     document.getElementById('itemTagSelect').value = item.tag;
                     document.getElementById('itemRatingInput').value = item.rating !== null ? item.rating : '';
                     titleEl.innerText = 'EDITAR REGISTRO';
-                    crownWrap.style.display = 'block'; // Mostrar botón de encoronar al editar
+                    crownWrap.style.display = 'block';
                 }
             } else {
                 form.reset();
                 document.getElementById('itemId').value = '';
                 titleEl.innerText = 'AÑADIR A ' + category.toUpperCase();
-                crownWrap.style.display = 'none'; // Ocultar botón de encoronar al añadir nuevo
+                crownWrap.style.display = 'none';
             }
 
             modal.classList.add('active');
         }
 
-        function closeModal() {
-            document.getElementById('itemModal').classList.remove('active');
-        }
+        function closeModal() { document.getElementById('itemModal').classList.remove('active'); }
 
         function handleFormSubmit(e) {
             e.preventDefault();
@@ -2272,34 +1380,27 @@
 
             if (id) {
                 const index = currentList.findIndex(x => x.id === id);
-                if (index !== -1) {
-                    currentList[index] = { id, title, platform, img, tag, rating };
-                }
+                if (index !== -1) currentList[index] = { id, title, platform, img, tag, rating };
             } else {
-                const newItem = { id: Date.now().toString(), title, platform, img, tag, rating };
-                currentList.unshift(newItem);
+                currentList.unshift({ id: Date.now().toString(), title, platform, img, tag, rating });
             }
 
-            if (category === 'game') { saveGames(); renderGames(); }
-            if (category === 'movie') { saveMovies(); renderMovies(); }
-            if (category === 'anime') { saveAnime(); renderAnime(); }
-
+            syncVaultToGitHub();
+            renderActiveView();
             updateDashboardStats();
             closeModal();
         }
 
         function deleteItem(category, id) {
             if (confirm('¿Eliminar este registro del Vault?')) {
-                if (category === 'game') { games = games.filter(g => g.id !== id); saveGames(); renderGames(); }
-                if (category === 'movie') { movies = movies.filter(m => m.id !== id); saveMovies(); renderMovies(); }
-                if (category === 'anime') { anime = anime.filter(a => a.id !== id); saveAnime(); renderAnime(); }
+                if (category === 'game') games = games.filter(g => g.id !== id);
+                if (category === 'movie') movies = movies.filter(m => m.id !== id);
+                if (category === 'anime') anime = anime.filter(a => a.id !== id);
+                syncVaultToGitHub();
+                renderActiveView();
                 updateDashboardStats();
             }
         }
-
-        function saveGames() { localStorage.setItem('yesus_vault_games', JSON.stringify(games)); }
-        function saveMovies() { localStorage.setItem('yesus_vault_movies', JSON.stringify(movies)); }
-        function saveAnime() { localStorage.setItem('yesus_vault_anime', JSON.stringify(anime)); }
 
         function initStarsAnimation() {
             const canvas = document.getElementById('starsCanvas');
@@ -2338,50 +1439,39 @@
             animate();
         }
 
-        
-        // EASTER EGG MUSICAL: TRAVELER'S ENCORE (OUTER WILDS)
         let eyeClickCount = 0;
         let eyeClickTimer = null;
 
         function playTravelerEncore() {
             eyeClickCount++;
             playVaultSound();
-
             if (eyeClickTimer) clearTimeout(eyeClickTimer);
-
             if (eyeClickCount >= 3) {
                 eyeClickCount = 0;
                 triggerTravelerMelody();
             } else {
-                eyeClickTimer = setTimeout(() => {
-                    eyeClickCount = 0;
-                }, 1200);
+                eyeClickTimer = setTimeout(() => { eyeClickCount = 0; }, 1200);
             }
         }
 
         function triggerTravelerMelody() {
             try {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
 
-                // Partitura exacta con clave octavada (8 debajo): La3, Do4, Re4 con puntillo, silencio, Do4, Sol4, Fa4, Mi4, Re4, Mi4, Re4, Do4
                 const notes = [
-                    { freq: 220.00, duration: 0.33 }, // la (A3)
-                    { freq: 261.63, duration: 0.33 }, // do (C4)
-                    { freq: 293.66, duration: 0.50 }, // re con puntillo (D4)
-                    { freq: 0,      duration: 0.25 }, // silencio
-                    { freq: 261.63, duration: 0.33 }, // do (C4)
-                    { freq: 392.00, duration: 0.33 }, // sol (G4)
-                    { freq: 349.23, duration: 0.33 }, // fa (F4)
-                    { freq: 329.63, duration: 0.33 }, // mi (E4)
-                    { freq: 293.66, duration: 0.33 }, // re (D4)
-                    { freq: 329.63, duration: 0.33 }, // mi (E4)
-                    { freq: 293.66, duration: 0.33 }, // re (D4)
-                    { freq: 261.63, duration: 0.60 }  // do (C4)
+                    { freq: 220.00, duration: 0.33 },
+                    { freq: 261.63, duration: 0.33 },
+                    { freq: 293.66, duration: 0.50 },
+                    { freq: 0,      duration: 0.25 },
+                    { freq: 261.63, duration: 0.33 },
+                    { freq: 392.00, duration: 0.33 },
+                    { freq: 349.23, duration: 0.33 },
+                    { freq: 329.63, duration: 0.33 },
+                    { freq: 293.66, duration: 0.33 },
+                    { freq: 329.63, duration: 0.33 },
+                    { freq: 293.66, duration: 0.33 },
+                    { freq: 261.63, duration: 0.60 }
                 ];
 
                 let delay = 0;
@@ -2389,12 +1479,8 @@
                     const currentDuration = note.duration;
                     if (note.freq > 0) {
                         setTimeout(() => {
-                            // Síntesis de banjo acústico real (Outer Wilds style):
-                            // 1. Onda cuadrada (square) para dar el timbre hueco y nasal del cuerpo del banjo con parche.
-                            // 2. Onda diente de sierra (sawtooth) para el brillo metálico y agudo de la cuerda pulsada con púa / uñera.
                             const oscBody = audioCtx.createOscillator();
                             const oscString = audioCtx.createOscillator();
-                            
                             const gain = audioCtx.createGain();
                             const filter = audioCtx.createBiquadFilter();
 
@@ -2404,12 +1490,10 @@
                             oscString.type = 'sawtooth';
                             oscString.frequency.setValueAtTime(note.freq, audioCtx.currentTime);
 
-                            // Filtro paso-banda o paso-bajo resonante enfocado a simular el parche del banjo
                             filter.type = 'lowpass';
                             filter.frequency.setValueAtTime(note.freq * 4.2, audioCtx.currentTime);
                             filter.Q.setValueAtTime(5.5, audioCtx.currentTime);
 
-                            // Envolvente de púa muy percusiva (ataque inmediato y decaimiento rápido característico de cuerda de banjo)
                             gain.gain.setValueAtTime(0.0, audioCtx.currentTime);
                             gain.gain.linearRampToValueAtTime(0.09, audioCtx.currentTime + 0.008);
                             gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + currentDuration * 0.85);
@@ -2427,16 +1511,13 @@
                     }
                     delay += currentDuration + 0.03;
                 });
-
-                console.log("🪕 Sonido de banjo auténtico reproduciéndose...");
-            } catch (e) {
-                console.error(e);
-            }
+            } catch (e) {}
         }
 
         initTheme();
         initStarsAnimation();
-        updateDashboardStats();
+        checkAdminMode();
+        loadVaultDataFromGitHub();
     </script>
 </body>
 </html>
