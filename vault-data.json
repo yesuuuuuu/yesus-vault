@@ -1,5 +1,14 @@
 {
-  "games": [],
+  "games": [
+    {
+      "id": "1794267290327",
+      "title": "The Legend of Zelda: Ocarina of Time",
+      "platform": "Switch 2",
+      "img": "https://imgs.search.brave.com/b2OcQbtG5zseCYAc0kt6adiRvMOaDPX37VAeBPQfRh8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9hc3Nl/dHNpby5nbndjZG4u/Y29tL1plbGRhLU9j/YXJpbmEtb2YtVGlt/ZS1XYWxrdGhyb3Vn/aC1IZWFkZXIuanBn/P3dpZHRoPTIwNDgm/aGVpZ2h0PTIwNDgm/Zml0PWJvdW5kcyZx/dWFsaXR5PTg1JmZv/cm1hdD1qcGcmYXV0/bz13ZWJw",
+      "tag": "JUGANDO",
+      "rating": null
+    }
+  ],
   "movies": [],
   "anime": [],
   "hof": []
