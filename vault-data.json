@@ -1,14 +1,5 @@
 {
-  "games": [
-    {
-      "id": "1794243113751",
-      "title": "kuriki",
-      "platform": "",
-      "img": "https://imgs.search.brave.com/7bQollawBw_HUZ1eeSdA-SWc_ovEmJIarAP8BHGmO1s/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTYy/MTk5MjczL3Bob3Rv/L3NwYWlucy1wcmlt/ZS1taW5pc3Rlci1t/YXJpYW5vLXJham95/LWxvb2tzLW9uLWR1/cmluZy10aGUtZmly/c3Qtc3RhdGUtb2Yt/bmF0aW9uLWRlYmF0/ZS1kdXJpbmcuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWdC/ODJWd1dreTliRUh3/d3NWYlZPY281eTdR/aDN0OUhuTGFkRlJD/eXVjQU09",
-      "tag": "JUGANDO",
-      "rating": null
-    }
-  ],
+  "games": [],
   "movies": [],
   "anime": [],
   "hof": []
